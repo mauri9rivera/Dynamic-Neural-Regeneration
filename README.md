@@ -18,7 +18,7 @@ the model’s capacity for further learning through random weight reinitializati
 Experimental results demonstrate that our approach outperforms existing methods
 in accuracy and robustness, highlighting its potential for real-world applications
 where data collection is challenging
-![alt text](https://github.com/NeurAI-Lab/Dynamic-Neural-Regeneration/blob/main/DNR/method_DNR.png) 
+![alt text](https://github.com/NeurAI-Lab/Dynamic-Neural-Regeneration/blob/main/DNR/DNR_method.png) 
 
 For more details, please see the [Paper](https://openreview.net/pdf?id=qCpCy0EQAJ).
 
