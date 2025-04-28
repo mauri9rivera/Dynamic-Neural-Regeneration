@@ -4,9 +4,9 @@ import yaml
 import argparse
 import os.path as osp
 import logging.config
-from utils import os_utils
-from utils import log_utils
-from utils import path_utils
+from DNR.utils import os_utils
+from DNR.utils import log_utils
+from DNR.utils import path_utils
 
 args = None
 

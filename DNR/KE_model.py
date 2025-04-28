@@ -1,6 +1,6 @@
 import os
 import time
-import data
+import DNR.data
 import torch
 import random
 import importlib

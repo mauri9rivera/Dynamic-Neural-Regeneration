@@ -7,12 +7,12 @@ from torchvision import transforms, datasets
 from collections import defaultdict
 import math
 import itertools
-import augmentations as aug
-from data.Dataloader_analysis.cifar10_noisy import CIFAR10ImbalancedNoisy
-from data.Dataloader_analysis.cifar100_noisy import CIFAR100ImbalancedNoisy
+from DNR.utils import augmentations as aug
+from DNR.data.Dataloader_analysis.cifar10_noisy import CIFAR10ImbalancedNoisy
+from DNR.data.Dataloader_analysis.cifar100_noisy import CIFAR100ImbalancedNoisy
 # from data.Dataloader_analysis.tiny_imgenet_noisy import TinyImageNet_noisy
 
-from configs.base_config import Config
+from DNR.configs.base_config import Config
 
 cfg = Config().parse(None)
 
