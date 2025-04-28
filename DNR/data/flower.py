@@ -3,10 +3,10 @@ import torch
 import numpy as np
 import pandas as pd
 import os.path as osp
-from utils import path_utils
-from configs.base_config import Config
-from data.custom_dataset import CustomDataset
-from data.datasets import load_dataset, load_dataset_linear_eval
+from DNR.utils import path_utils
+from DNR.configs.base_config import Config
+from DNR.data.custom_dataset import CustomDataset
+from DNR.data.datasets import load_dataset, load_dataset_linear_eval
 
 
 class Flower102:
