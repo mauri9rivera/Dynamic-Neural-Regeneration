@@ -2,13 +2,13 @@ import os
 import math
 import torch
 import shutil
-import models
+import DNR.models as models
 import pathlib
 import numpy as np
 import torch.nn as nn
-from layers import bn_type
-from layers import conv_type
-from layers import linear_type
+from DNR.layers import bn_type
+from DNR.layers import conv_type
+from DNR.layers import linear_type
 import torch.backends.cudnn as cudnn
 from copy import deepcopy
 import matplotlib.pyplot as plt

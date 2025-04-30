@@ -8,22 +8,24 @@ import torch.optim
 import torch.nn as nn
 import torch.utils.data
 import torch.nn.parallel
-from utils import net_utils
-from utils import csv_utils
-from utils import path_utils
+from DNR.utils import net_utils
+from DNR.utils import csv_utils
+from DNR.utils import path_utils
 # from layers import ml_losses
 from datetime import timedelta
 import torch.utils.data.distributed
-from utils.schedulers import get_policy
+from DNR.utils.schedulers import get_policy
 from torch.utils.tensorboard import SummaryWriter
-from utils.logging import AverageMeter, ProgressMeter
+from DNR.utils.logging import AverageMeter, ProgressMeter
 import wandb
 import torch.nn.functional as F
 from copy import deepcopy
 import csv
-from utils.pruning import Pruner
+from DNR.utils.pruning import Pruner
 import matplotlib.pyplot as plt
 import numpy as np
+from pathlib import Path
+import tempfile
 
 
 
@@ -42,7 +44,7 @@ def ke_cls_train(cfg, model, generation):
 
     optimizer = get_optimizer(cfg, model)
     cfg.logger.info(f"=> Getting {cfg.set} dataset")
-    dataset = getattr(data, cfg.set)(cfg)
+    dataset = getattr(DNR.data, cfg.set)(cfg)
     
     if cfg.lr_policy == 'long_cosine_lr':
         lr_policy = get_policy(cfg.lr_policy)(optimizer, generation, cfg)
@@ -69,8 +71,18 @@ def ke_cls_train(cfg, model, generation):
 
     run_base_dir, ckpt_base_dir, log_base_dir = path_utils.get_directories(cfg, generation) 
     cfg.ckpt_base_dir = ckpt_base_dir
+    log_base_dir = Path(log_base_dir)
+    log_base_dir.mkdir(parents=True, exist_ok=True)
 
-    writer = SummaryWriter(log_dir=log_base_dir)
+    # Optional: Test writing to it to catch issues early
+    try:
+        (log_base_dir / "test_write.tmp").touch()
+        os.remove(log_base_dir / "test_write.tmp")
+    except Exception as e:
+        raise RuntimeError(f"[TensorBoard] Cannot write to log dir '{log_base_dir}': {e}")
+
+    writer = SummaryWriter(log_dir=str(log_base_dir))
+
     epoch_time = AverageMeter("epoch_time", ":.4f", write_avg=False)
     validation_time = AverageMeter("validation_time", ":.4f", write_avg=False)
     train_time = AverageMeter("train_time", ":.4f", write_avg=False)
@@ -207,6 +219,7 @@ def ke_cls_train(cfg, model, generation):
                 last_tst_acc5, best_tst_acc1, best_tst_acc5, best_train_acc1, best_train_acc5]
 
     csv_file = os.path.join(run_base_dir, "train.csv")
+    Path(os.path.dirname(csv_file)).mkdir(parents=True, exist_ok=True)
 
     if not os.path.exists(csv_file):
         with open(csv_file, 'a') as ff:
@@ -254,7 +267,7 @@ def fisher_matrix(cfg, net, dataset, opt, fisher_mat):
 
 def get_trainer(args):
     args.logger.info(f"=> Using trainer from trainers.{args.trainer}")
-    trainer = importlib.import_module(f"trainers.default_cls")
+    trainer = importlib.import_module(f"DNR.trainers.default_cls")
     return trainer.train, trainer.validate
 
 
@@ -369,8 +382,18 @@ def ke_cls_train_fish(cfg, model, generation, fisher_mat):
 
     run_base_dir, ckpt_base_dir, log_base_dir = path_utils.get_directories(cfg, generation)
     cfg.ckpt_base_dir = ckpt_base_dir
+    log_base_dir = Path(log_base_dir)
+    log_base_dir.mkdir(parents=True, exist_ok=True)
 
-    writer = SummaryWriter(log_dir=log_base_dir)
+    # Optional: Test writing to it to catch issues early
+    try:
+        (log_base_dir / "test_write.tmp").touch()
+        os.remove(log_base_dir / "test_write.tmp")
+    except Exception as e:
+        raise RuntimeError(f"[TensorBoard] Cannot write to log dir '{log_base_dir}': {e}")
+
+    writer = SummaryWriter(log_dir=str(log_base_dir))
+
     epoch_time = AverageMeter("epoch_time", ":.4f", write_avg=False)
     validation_time = AverageMeter("validation_time", ":.4f", write_avg=False)
     train_time = AverageMeter("train_time", ":.4f", write_avg=False)
@@ -514,6 +537,7 @@ def ke_cls_train_fish(cfg, model, generation, fisher_mat):
     arg_list = [generation, cfg.sparsity,last_val_acc1, last_val_acc5, best_val_acc1, best_val_acc5, last_tst_acc1, last_tst_acc5, best_tst_acc1, best_tst_acc5, best_train_acc1, best_train_acc5]
 
     csv_file = os.path.join(run_base_dir, "train.csv")
+    Path(os.path.dirname(csv_file)).mkdir(parents=True, exist_ok=True)
 
     if not os.path.exists(csv_file):
         with open(csv_file, 'a') as ff:
@@ -570,7 +594,7 @@ def adjust_fisher(fim, net, filter_importance_statistic='norm'):
 def ke_cls_eval_sparse(cfg, model, generation, ckpath, name):
 
     _, validate = get_trainer(cfg)
-    dataset = getattr(data, cfg.set)(cfg)
+    dataset = getattr(DNR.data, cfg.set)(cfg)
 
     if cfg.label_smoothing == 0:
         softmax_criterion = nn.CrossEntropyLoss().cuda()
@@ -593,6 +617,7 @@ def ke_cls_eval_sparse(cfg, model, generation, ckpath, name):
     col_names = ['generation', 'last_tst_acc1', 'last_tst_acc5']
     arg_list = [generation, last_tst_acc1, last_tst_acc5]
     csv_file = os.path.join(ckpath, name)
+    Path(os.path.dirname(csv_file)).mkdir(parents=True, exist_ok=True)
 
     if not os.path.exists(csv_file):
         with open(csv_file, 'a') as ff:

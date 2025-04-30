@@ -2,11 +2,11 @@ import time
 import torch
 import numpy as np
 import torch.nn as nn
-from utils import net_utils
-from layers.CS_KD import KDLoss
-from utils.eval_utils import accuracy
-from utils.logging import AverageMeter, ProgressMeter
-from utils.pruning import apply_reg, update_reg
+from DNR.utils import net_utils
+from DNR.layers.CS_KD import KDLoss
+from DNR.utils.eval_utils import accuracy
+from DNR.utils.logging import AverageMeter, ProgressMeter
+from DNR.utils.pruning import apply_reg, update_reg
 import matplotlib.pyplot as plt
 
 

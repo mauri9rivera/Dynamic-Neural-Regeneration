@@ -1,0 +1,89 @@
+2025-04-29 17:57:09,875 [INFO] KE: => Creating model 'Split_ResNet18'
+2025-04-29 17:57:09,879 [INFO] KE: ==> Building first layer with <class 'DNR.layers.conv_type.SplitConv'>
+2025-04-29 17:57:10,500 [INFO] KE: Namespace(alpha=32, arch='Split_ResNet18', batch_size=256, bias_split_rate=0.5, bn_type='SplitBatchNorm', clf='sgd', config_file=None, conv_type='SplitConv', cs_kd=False, data='C:/Users/preda/PycharmProjects/Dynamic-Neural-Regeneration/DNR/flower102', deficit_epo=100, device=device(type='cuda'), epochs=200, eval_intermediate_tst=0, eval_linear=False, eval_tst=True, evolve_mode='rand', exp_dir='C:\\Users\\preda\\PycharmProjects\\Dynamic-Neural-Regeneration\\DNR\\checkpoints/Dynamic-Neural-Regeneration\\SPLT_CLS_Flower102_Split_ResNet18_cskdFalse_smth0.1_k0.5_G11_e200_evrand_hResetFalse_smwels_None_seedNone/', fix_seed=False, freeze_fisher=False, freeze_non_reset=False, gamma=0, gpu=0, group_name=None, group_vars='', grow_sparcity_gen=False, init='kaiming_normal', init_path='C:/Users/preda/PycharmProjectsDynamic-Neural-Regeneration/DNR/data/', label_smoothing=0.1, last_layer=False, linear_batch_size=32, linear_type='SplitLinear', log_dir=None, log_file='train_log.txt', logger=<Logger KE (DEBUG)>, lr=0.253, lr_decay_gamma=0.5, lr_decay_step=10, lr_policy='cosine_lr', method='-', mode='fan_in', momentum=0.9, multistep_lr_adjust=1, multistep_lr_gamma=0.97, name='SPLT_CLS_Flower102_Split_ResNet18_cskdFalse_smth0.1_k0.5_G11_e200_evrand_hResetFalse_smwels_None_seedNone/', no_bn_decay=False, no_normalize_LW=True, no_rescale_weights=True, no_reset=False, no_wandb=True, nonlinearity='relu', num_cls=102, num_generations=11, num_threads=0, optimizer='sgd', pretrained=None, print_freq=10000, reinit_type='lw', reset_bn=False, reset_hypothesis=False, reset_important_weights=False, reset_layer_name=None, resume='', reverse_freeze=False, reverse_reset=False, samples_per_class=1, save_every=-1, save_model=True, scale_fan=False, seed=None, set='Flower102', slim_factor=1.0, slow_lr_multiplier=0.0, snip=True, sparsity=0.8, split_mode='wels', split_rate=0.5, start_epoch=0, supervised=False, test_interval=10, trainer='default_cls', use_deficit=False, use_pretrain=False, use_train_val=False, use_val=False, warm=1, warmup_length=20, weight_decay=0.0001, weight_pruning=False, weights='freeze')
+2025-04-29 17:57:10,500 [INFO] KE: => Using trainer from trainers.default_cls
+2025-04-29 17:57:10,502 [INFO] KE: Use GPU: 0 for training
+2025-04-29 17:57:10,503 [INFO] KE: <DEBUG> gradient to conv1.weight
+2025-04-29 17:57:10,503 [INFO] KE: <DEBUG> no gradient to conv1.mask
+2025-04-29 17:57:10,503 [INFO] KE: <DEBUG> gradient to bn1.weight
+2025-04-29 17:57:10,503 [INFO] KE: <DEBUG> gradient to bn1.bias
+2025-04-29 17:57:10,503 [INFO] KE: <DEBUG> gradient to layer1.0.conv1.weight
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> no gradient to layer1.0.conv1.mask
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> gradient to layer1.0.bn1.weight
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> gradient to layer1.0.bn1.bias
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> gradient to layer1.0.conv2.weight
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> no gradient to layer1.0.conv2.mask
+2025-04-29 17:57:10,504 [INFO] KE: <DEBUG> gradient to layer1.0.bn2.weight
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> gradient to layer1.0.bn2.bias
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> gradient to layer1.1.conv1.weight
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> no gradient to layer1.1.conv1.mask
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> gradient to layer1.1.bn1.weight
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> gradient to layer1.1.bn1.bias
+2025-04-29 17:57:10,505 [INFO] KE: <DEBUG> gradient to layer1.1.conv2.weight
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> no gradient to layer1.1.conv2.mask
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> gradient to layer1.1.bn2.weight
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> gradient to layer1.1.bn2.bias
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> gradient to layer2.0.conv1.weight
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> no gradient to layer2.0.conv1.mask
+2025-04-29 17:57:10,506 [INFO] KE: <DEBUG> gradient to layer2.0.bn1.weight
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> gradient to layer2.0.bn1.bias
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> gradient to layer2.0.conv2.weight
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> no gradient to layer2.0.conv2.mask
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> gradient to layer2.0.bn2.weight
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> gradient to layer2.0.bn2.bias
+2025-04-29 17:57:10,507 [INFO] KE: <DEBUG> gradient to layer2.0.downsample.0.weight
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> no gradient to layer2.0.downsample.0.mask
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> gradient to layer2.0.downsample.1.weight
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> gradient to layer2.0.downsample.1.bias
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> gradient to layer2.1.conv1.weight
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> no gradient to layer2.1.conv1.mask
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> gradient to layer2.1.bn1.weight
+2025-04-29 17:57:10,508 [INFO] KE: <DEBUG> gradient to layer2.1.bn1.bias
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> gradient to layer2.1.conv2.weight
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> no gradient to layer2.1.conv2.mask
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> gradient to layer2.1.bn2.weight
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> gradient to layer2.1.bn2.bias
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> gradient to layer3.0.conv1.weight
+2025-04-29 17:57:10,509 [INFO] KE: <DEBUG> no gradient to layer3.0.conv1.mask
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> gradient to layer3.0.bn1.weight
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> gradient to layer3.0.bn1.bias
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> gradient to layer3.0.conv2.weight
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> no gradient to layer3.0.conv2.mask
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> gradient to layer3.0.bn2.weight
+2025-04-29 17:57:10,510 [INFO] KE: <DEBUG> gradient to layer3.0.bn2.bias
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> gradient to layer3.0.downsample.0.weight
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> no gradient to layer3.0.downsample.0.mask
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> gradient to layer3.0.downsample.1.weight
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> gradient to layer3.0.downsample.1.bias
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> gradient to layer3.1.conv1.weight
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> no gradient to layer3.1.conv1.mask
+2025-04-29 17:57:10,511 [INFO] KE: <DEBUG> gradient to layer3.1.bn1.weight
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> gradient to layer3.1.bn1.bias
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> gradient to layer3.1.conv2.weight
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> no gradient to layer3.1.conv2.mask
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> gradient to layer3.1.bn2.weight
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> gradient to layer3.1.bn2.bias
+2025-04-29 17:57:10,512 [INFO] KE: <DEBUG> gradient to layer4.0.conv1.weight
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> no gradient to layer4.0.conv1.mask
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> gradient to layer4.0.bn1.weight
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> gradient to layer4.0.bn1.bias
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> gradient to layer4.0.conv2.weight
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> no gradient to layer4.0.conv2.mask
+2025-04-29 17:57:10,513 [INFO] KE: <DEBUG> gradient to layer4.0.bn2.weight
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.0.bn2.bias
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.0.downsample.0.weight
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> no gradient to layer4.0.downsample.0.mask
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.0.downsample.1.weight
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.0.downsample.1.bias
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.1.conv1.weight
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> no gradient to layer4.1.conv1.mask
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.1.bn1.weight
+2025-04-29 17:57:10,514 [INFO] KE: <DEBUG> gradient to layer4.1.bn1.bias
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> gradient to layer4.1.conv2.weight
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> no gradient to layer4.1.conv2.mask
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> gradient to layer4.1.bn2.weight
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> gradient to layer4.1.bn2.bias
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> gradient to fc.weight
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> gradient to fc.bias
+2025-04-29 17:57:10,515 [INFO] KE: <DEBUG> no gradient to fc.mask
+2025-04-29 17:57:10,516 [INFO] KE: => Getting Flower102 dataset

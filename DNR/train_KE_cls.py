@@ -1,12 +1,12 @@
 import os
 import torch
-import DNR.KE_model
+import DNR.KE_model as KE_model
 import importlib
-from utils import net_utils
+from DNR.utils import net_utils
 # from utils import csv_utils
 # from layers import conv_type
-from utils import path_utils
-from configs.base_config import Config
+from DNR.utils import path_utils
+from DNR.configs.base_config import Config
 import pdb
 import wandb
 import random

@@ -2,9 +2,9 @@
 import math
 import torch
 import torch.nn as nn
-import layers.conv_type
-import layers.bn_type
-import layers.linear_type
+import DNR.layers.conv_type
+import DNR.layers.bn_type
+import DNR.layers.linear_type
 
 
 class Builder(object):
@@ -284,9 +284,9 @@ def get_builder(cfg):
     # cfg.logger.info("==> Conv Type: {}".format(cfg.conv_type))
     # cfg.logger.info("==> BN Type: {}".format(cfg.bn_type))
 
-    conv_layer = getattr(layers.conv_type, cfg.conv_type)
-    bn_layer = getattr(layers.bn_type, cfg.bn_type)
-    linear_layer = getattr(layers.linear_type, cfg.linear_type)
+    conv_layer = getattr(DNR.layers.conv_type, cfg.conv_type)
+    bn_layer = getattr(DNR.layers.bn_type, cfg.bn_type)
+    linear_layer = getattr(DNR.layers.linear_type, cfg.linear_type)
 
 
     builder = Builder(conv_layer=conv_layer, bn_layer=bn_layer,linear_layer=linear_layer,cfg=cfg)

@@ -3,12 +3,12 @@ import math
 import torch
 import torch.nn as nn
 from torch import Tensor
-from models import common
+from DNR.models import common
 import torch.nn.functional as F
 import torch.utils.checkpoint as cp
 from collections import OrderedDict
 from torch.jit.annotations import List
-from models.builder import get_builder
+from DNR.models.builder import get_builder
 
 try:
     from torch.hub import load_state_dict_from_url

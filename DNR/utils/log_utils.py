@@ -149,7 +149,7 @@ def get_logging_dict(name,mode='w'):
             'stderr': {
                 'level': 'INFO',
                 'formatter': 'standard',
-                'class': 'utils.log_utils.ColorStreamHandler',
+                'class': 'DNR.utils.log_utils.ColorStreamHandler',
                 'stream': 'ext://sys.stderr',
             },
             'logfile': {

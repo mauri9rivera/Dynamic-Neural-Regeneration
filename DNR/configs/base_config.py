@@ -16,7 +16,7 @@ class Config:
 
         # General Config
         parser.add_argument(
-            "--data", help="path to dataset base directory", default="/home/datasets"
+            "--data", help="path to dataset base directory", default="C:/Users/preda/PycharmProjectsDynamic-Neural-Regeneration/DNR/datasets/"
         )
 
         parser.add_argument("--optimizer", help="Which optimizer to use", default="sgd")
@@ -162,7 +162,7 @@ class Config:
         parser.add_argument(
             "--init_path",
             # dest="init_path",
-            default='/data/output-ai/',
+            default='C:/Users/preda/PycharmProjectsDynamic-Neural-Regeneration/DNR/data/',
             type=str,
             help="use pre-trained model",
         )

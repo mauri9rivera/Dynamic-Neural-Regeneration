@@ -1,7 +1,7 @@
 import numpy as np
 import torch
-from data.datasets import load_dataset, load_dataset_linear_eval
-import utils.augmentations as aug
+from DNR.data.datasets import load_dataset, load_dataset_linear_eval
+import DNR.utils.augmentations as aug
 
 class CUB200:
     def __init__(self, cfg):

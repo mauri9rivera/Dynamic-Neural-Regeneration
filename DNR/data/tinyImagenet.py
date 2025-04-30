@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from data.datasets import load_dataset, load_dataset_linear_eval
+from DNR.data.datasets import load_dataset, load_dataset_linear_eval
 
 
 class tinyImagenet_full:

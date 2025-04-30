@@ -5,7 +5,7 @@ import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.autograd as autograd
-from configs.base_config import args as parser_args
+from DNR.configs.base_config import args as parser_args
 
 DenseConv = nn.Conv2d
 

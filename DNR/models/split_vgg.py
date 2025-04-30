@@ -1,8 +1,8 @@
 import math
 import torch
 import torch.nn as nn
-from layers import conv_type
-from models.builder import get_builder
+from DNR.layers import conv_type
+from DNR.models.builder import get_builder
 
 # from .utils import load_state_dict_from_url
 try:

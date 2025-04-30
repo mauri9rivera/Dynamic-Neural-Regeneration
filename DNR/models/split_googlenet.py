@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.jit.annotations import Optional, Tuple
 from torch import Tensor
-from models.builder import get_builder
+from DNR.models.builder import get_builder
 
 try:
     from torch.hub import load_state_dict_from_url

@@ -1,7 +1,7 @@
 import os
 import time
 import pathlib
-from utils import path_utils
+from DNR.utils import path_utils
 
 def write_cls_result_to_csv(**kwargs):
     name = kwargs.get('name')
